@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tsup-dev
+  name: tsup-website
   labels:
-    app: tsup-dev
+    app: tsup-website
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tsup-dev
+      app: tsup-website
   template:
     metadata:
       labels:
-        app: tsup-dev
+        app: tsup-website
     spec:
       containers:
-      - name: tsup-dev
-        image: tlenpdacr.azurecr.io/translink/tsup-dev:0.2
+      - name: tsup-website
+        image: translinkstg.azurecr.io/tsup/website:1518
       imagePullSecrets:
       - name: acr-auth
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: tsup-dev-service
+  name: tsup-website-service
 spec:
   type: LoadBalancer
   ports:
@@ -31,4 +31,4 @@ spec:
     targetPort: 80
     port: 5000
   selector:
-    app: tsup-dev
+    app: tsup-website
