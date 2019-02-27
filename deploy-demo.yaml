@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tsup-website
-        image: translinkstg.azurecr.io/tsup/website:1518
+        image: translinkstg.azurecr.io/tsup/website:1524
       imagePullSecrets:
       - name: acr-auth
 ---
